@@ -1,46 +1,62 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuideZ AI Webectra</title>
+    <link rel="stylesheet" href="style.css">
+    <title>GuideZ AI Webectra</title>
+    <meta name="description" content="GuideZ AI Webectra is an AI-powered web application that provides users with a seamless and interactive experience. It offers a range of features, including real-time chat, image processing, and customizable settings. With its user-friendly interface and advanced AI capabilities, GuideZ AI Webectra is designed to enhance productivity and creativity for users across various domains.">
+    <meta name="keywords" content="GuideZ AI Webectra, AI web application, real-time chat, image processing, customizable settings, user-friendly interface, advanced AI capabilities, productivity, creativity">
+</head>
+
 <body>
 
-<h1>GuideZ AI Webectra</h1>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- menu button -->
-<button class="menu-btn">
-    <img src="menu.png">
-</button>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">G</div>
+                <div>
+                    <h1>GuideZ AI Webectra</h1>
+                    <p class="subtitle">Smart chat, fast controls, and polished interaction.</p>
+                </div>
+            </div>
 
+            <div class="top-actions">
+                <button id="settings-toggle" class="control-btn" onclick="openSettings()">⚙️ Settings</button>
+                <button class="control-btn" onclick="toggleMusic()">🎵 Music</button>
+            </div>
+        </header>
 
-<!-- settings button -->
-<button onclick="openSettings()">⚙️</button>
+        <main class="main-panel">
+            <section id="chat" class="chat-panel"></section>
 
+            <aside id="settings" class="settings-panel">
+                <h3>Appearance</h3>
+                <button onclick="blueTheme()">Blue Theme</button>
+                <button onclick="redTheme()">Red Theme</button>
+                <button onclick="blackTheme()">Black Theme</button>
 
-<!-- settings panel -->
-<div id="settings">
+                <h3>Typography</h3>
+                <button onclick="coolFont()">Cool Font</button>
+                <button onclick="regularFont()">Regular Font</button>
+            </aside>
+        </main>
 
-<h3>Theme</h3>
+        <footer class="input-area">
+            <div class="input-group">
+                <input id="input" placeholder="Ask something">
+                <input type="file" id="imageInput" accept="image/*" hidden>
+            </div>
+            <button class="control-btn" onclick="document.getElementById('imageInput').click()">📸 Image</button>
+            <button class="send-btn" onclick="sendMessage()">Send</button>
+        </footer>
 
-<button onclick="blueTheme()">Blue</button>
+        <p id="time" class="page-time"></p>
+    </div>
 
-<button onclick="redTheme()">Red</button>
-
-<button onclick="blackTheme()">Black</button>
-
-<button onclick="coolFont()">Cool Font</button>
-</div>
-
-<div id="chat"></div>
-
-
-<div class="input-area">
-
-<input id="input" placeholder="Ask something">
-
-<button onclick="sendMessage()">Send</button>
-
-</div>
-
-
-<p id="time"></p>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
