@@ -1,0 +1,74 @@
+body {
+    background-color: rgb(0, 16, 85);
+    color: rgb(122, 217, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 100vh;
+}
+
+/* title top left */
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+}
+
+/* input area bottom */
+.input-area {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#chat {
+    position: absolute;
+    top: 100px;
+    left: 25px;
+}
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.menu-btn img {
+    width: 45px;
+    height: 45px;
+}
+
+
+#menu {
+
+    display: none;
+
+    position: absolute;
+    top: 80px;
+    right: 25px;
+    
+
+    background-color: rgb(255, 255, 255);
+
+    font-family: Arial, Helvetica, sans-serif;
+    
+    padding: 15px;
+
+    border-radius: 20px;
+}
+
+#settings {
+    display: none;
+
+    position: absolute;
+    right: 25px;
+    top: 80px;
+
+    background: rgb(0,30,120);
+    padding: 20px;
+    border-radius: 20px;
+}
