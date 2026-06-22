@@ -1,74 +1,225 @@
 body {
-    background-color: rgb(0, 16, 85);
-    color: rgb(122, 217, 255);
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, rgba(73, 120, 255, 0.22), transparent 32%),
+                linear-gradient(180deg, #05112f 0%, #081b44 52%, #0d2762 100%);
+    color: #e6f3ff;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
 }
 
-/* title top left */
-h1 {
-    position: absolute;
-    top: 20px;
-    left: 25px;
+* {
+    box-sizing: border-box;
 }
 
-/* input area bottom */
-.input-area {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
+.page-shell {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 24px 20px 36px;
 }
 
-#chat {
-    position: absolute;
-    top: 100px;
-    left: 25px;
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    background: rgba(10, 23, 58, 0.86);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(18px);
 }
-.menu-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
 
-    background: none;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #60adff, #3d59ff);
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: -0.03em;
+}
+
+.subtitle {
+    margin: 6px 0 0;
+    color: rgba(230, 243, 255, 0.75);
+    font-size: 0.95rem;
+}
+
+.top-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.control-btn,
+.send-btn {
     border: none;
+    border-radius: 16px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    font-family: inherit;
+    font-weight: 700;
     cursor: pointer;
+    transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
-
-.menu-btn img {
-    width: 45px;
-    height: 45px;
+.control-btn:hover,
+.send-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.16);
 }
 
-
-#menu {
-
-    display: none;
-
-    position: absolute;
-    top: 80px;
-    right: 25px;
-    
-
-    background-color: rgb(255, 255, 255);
-
-    font-family: Arial, Helvetica, sans-serif;
-    
-    padding: 15px;
-
-    border-radius: 20px;
+.send-btn {
+    background: linear-gradient(135deg, #5a94ff, #2a47ff);
+    color: #fff;
 }
 
-#settings {
-    display: none;
-
-    position: absolute;
-    right: 25px;
-    top: 80px;
-
-    background: rgb(0,30,120);
-    padding: 20px;
-    border-radius: 20px;
+.send-btn:hover {
+    background: linear-gradient(135deg, #6da7ff, #405bff);
 }
+
+.main-panel {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.chat-panel {
+    min-height: 520px;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(11, 26, 62, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+    overflow-y: auto;
+}
+
+.chat-panel p {
+    line-height: 1.7;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.chat-panel p img {
+    width: 100%;
+    max-width: 240px;
+    border-radius: 18px;
+    display: block;
+    margin-top: 12px;
+}
+
+.settings-panel {
+    position: sticky;
+    top: 24px;
+    padding: 26px;
+    border-radius: 28px;
+    background: rgba(9, 18, 46, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    display: grid;
+    gap: 16px;
+}
+
+.settings-panel h3 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(230, 243, 255, 0.85);
+}
+
+.settings-panel button {
+    width: 100%;
+    text-align: left;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.input-area {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+}
+
+#input {
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.09);
+    color: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.18s ease, background 0.18s ease;
+}
+
+#input:focus {
+    border-color: rgba(90, 148, 255, 0.8);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.page-time {
+    margin-top: 18px;
+    color: rgba(230, 243, 255, 0.75);
+    text-align: right;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+    .main-panel {
+        grid-template-columns: 1fr;
+    }
+    .settings-panel {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 680px) {
+    .page-shell {
+        padding: 18px 14px 28px;
+    }
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .top-actions {
+        justify-content: flex-start;
+    }
+    .input-area {
+        grid-template-columns: 1fr;
+    }
+    .control-btn,
+    .send-btn {
+        width: 100%;
+    }
+}
+
